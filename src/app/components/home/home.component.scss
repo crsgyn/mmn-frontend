@@ -1,0 +1,53 @@
+@import 'src/scss/styles.scss';
+
+.Sidebar {
+  align-self: left;
+  background-color: white;
+  min-height: 100vh;
+  border: 1px;
+
+  &-content {
+    display: flex;
+  }
+
+  &-menu {
+    background-color: $heavy-primary;
+    min-height: 100vh;
+    min-width: 20vh;
+  }
+
+  &-menu-content {
+    flex-grow: 100;
+  }
+
+  .nav-link {
+    color: $bg-gray;
+    border-radius: unset;
+
+    &-active {
+      color: $heavy-primary;
+      background-color: white;
+      border-radius: unset;
+    }
+  }
+
+  .nav-link:hover {
+    background-color: $light-primary;
+    color: $shadow-black;
+  }
+
+  @media only screen and (max-width: 768px) {
+
+    /* For mobile phones: */
+    &-content {
+      display: block;
+    }
+
+    &-menu {
+      height: unset;
+      width: 100%;
+      min-height: unset;
+    }
+  }
+
+}

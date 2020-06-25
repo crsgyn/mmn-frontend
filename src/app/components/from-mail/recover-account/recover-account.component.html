@@ -1,0 +1,15 @@
+<div class="Signin">
+  <div class="Wrapper fadeInDown">
+    <div class="Signin-content">
+
+      <span *ngIf="!this.accountDoesntExistMsg">
+        {{ 'info.accountRecovering' | translate }}
+      </span>
+
+      <span class="alert alert-danger" role="alert" *ngIf="this.accountDoesntExistMsg">
+        {{ 'errors.doesNotExist' | translate }}
+      </span>
+
+    </div>
+  </div>
+</div>

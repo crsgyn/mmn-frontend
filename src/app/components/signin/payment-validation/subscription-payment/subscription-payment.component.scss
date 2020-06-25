@@ -1,0 +1,69 @@
+@import 'src/scss/styles.scss';
+
+.card-deck {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  min-width: 50%;
+  max-width: 50%;
+}
+
+.card-title {
+  flex: 1 1 auto;
+  min-height: 13vh;
+  text-align: center;
+  vertical-align: middle;
+  margin: 1rem 0;
+}
+
+.card-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-body {
+  display: flex
+}
+
+.card-text {
+  text-align: left;
+}
+
+.card {
+  background: $bg-gray;
+  margin: 20px;
+  padding: 5px;
+  min-width: 20vh;
+  border: 1px solid $medium-primary;
+}
+
+::ng-deep .list-group-item {
+  background: $bg-gray !important;
+  border: none !important;
+}
+
+.card:hover,
+::ng-deep .card:hover .list-group-item {
+  color: white;
+  background: $medium-primary !important;
+}
+
+@media only screen and (max-width: 768px) {
+
+  /* For mobile phones: */
+  .card-deck {
+    display: block;
+  }
+
+  .card {
+    margin: 1rem auto;
+    min-width: unset;
+    max-width: unset;
+    width: 90%;
+  }
+}

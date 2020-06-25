@@ -1,0 +1,123 @@
+// Tools
+@mixin border-radius($value) {
+  -webkit-border-radius: $value;
+  border-radius: $value;
+}
+
+@mixin box-shadow($value) {
+  -webkit-box-shadow: $value;
+  box-shadow: $value;
+}
+
+@mixin transform($radius) {
+  -moz-transform: scale($radius);
+  -webkit-transform: scale($radius);
+  -ms-transform: scale($radius);
+  -o-transform: scale($radius);
+  transform: scale($radius);
+}
+
+@mixin transition($dur, $type: ease-in-out) {
+  -webkit-transition: all $dur ease-in-out;
+  -moz-transition: all $dur ease-in-out;
+  -ms-transition: all $dur ease-in-out;
+  -o-transition: all $dur ease-in-out;
+  transition: all $dur ease-in-out;
+}
+
+// Blocks
+
+@mixin container($max-width) {
+  background: $bg-gray;
+  padding: 30px;
+  width: $max-width;
+  max-width: 100%;
+  position: relative;
+  text-align: center;
+  padding: 0px;
+
+  @include border-radius(10px);
+  @include box-shadow(0 30px 60px 0 $shadow-black);
+}
+
+// Animations
+
+// Keyframes
+@mixin fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@mixin fadeInDown {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+// Basic animation building blocks
+@mixin animation($args: "") {
+  @if($args !="") {
+    -webkit-animation: $args;
+    -moz-animation: $args;
+    animation: $args;
+  }
+
+  @include animation-keyframe {
+    @content;
+  }
+}
+
+@mixin animation-keyframe {
+  $animation-number: 0 !default !global;
+  $animation-number: $animation-number + 1 !global;
+  $name: unquote("การเคลื่อนไหวที่-#{$animation-number}");
+
+  -webkit-animation-name: $name;
+  -moz-animation-name: $name;
+  animation-name: $name;
+
+  @at-root {
+    @keyframes #{$name} {
+      @content;
+    }
+
+    @-moz-keyframes #{$name} {
+      @content;
+    }
+
+    @-webkit-keyframes #{$name} {
+      @content;
+    }
+  }
+}
+
+@mixin animation-duration($dur) {
+  -webkit-animation-duration: $dur;
+  -moz-animation-duration: $dur;
+  animation-duration: $dur;
+}
+
+@mixin animation-delay($dur) {
+  -webkit-animation-delay: $dur;
+  -moz-animation-delay: $dur;
+  animation-delay: $dur;
+}
+
+@mixin animation-fill-mode($mode) {
+  -webkit-animation-fill-mode: $mode;
+  -moz-animation-fill-mode: $mode;
+  animation-fill-mode: $mode;
+}

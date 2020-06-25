@@ -1,0 +1,19 @@
+@import 'src/scss/styles.scss';
+
+.PaymentValidation {
+  &-content {
+    @include container(1150px);
+  }
+
+  .navs ul {
+    justify-content: center;
+  }
+
+  span {
+    background: $very-light-primary;
+    display: block;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid $medium-primary;
+  }
+}

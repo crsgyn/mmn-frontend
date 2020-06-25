@@ -1,0 +1,10 @@
+@import 'src/scss/styles.scss';
+
+.SettingsPage {
+  // STRUCTURE
+
+  &-content {
+    @include container(100%);
+  }
+
+}

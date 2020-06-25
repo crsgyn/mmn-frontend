@@ -1,0 +1,42 @@
+<!-- Modal -->
+<app-modal [title]=" modalTitle | translate ">
+  <div [innerHtml]=" modalContent | translate "></div>
+</app-modal>
+<!-- ProductsPage -->
+<div class="Productspage">
+  <div class="Wrapper fadeInDown">
+    <!-- Title -->
+    <!-- Logo -->
+    <div class="fadeIn-first">
+      <img [src]="logo" class="Productspage-logo" alt="{{ 'home.productsTitle' | translate}}" />
+    </div>
+    <!-- product cards -->
+    <div class="card-deck">
+      <div class="card mb-4" *ngFor="let card of cards">
+        <img [src]="card.img" class="card-img-top" alt="card.title">
+        <div class="card-body">
+          <h5 class="card-title text-center">{{ card.title | translate }}</h5>
+          <p class="card-text">{{ card.text | translate }} </p>
+        </div>
+        <div class="card-footer mb-4">
+          <input type="button" class="productButton underlineHover" [disabled]="checkIfDisabledForCard(card)"
+            (click)="navigateTo(card.link)" value="{{ 'products.goToLink' | translate }}">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--  Translations
+  {{ 'products.car.title' | translate }},
+  {{ 'products.flight.text' | translate }},
+  {{ 'products.goToLink' | translate }},
+
+  {{ 'sorModal.loadingTitle' | translate }}
+  {{ 'sorModal.loadingContent' | translate }}
+  {{ 'sorModal.redirectTitle' | translate }}
+  {{ 'sorModal.redirectContent' | translate }}
+  {{ 'sorModal.errorTitle' | translate }}
+  {{ 'sorModal.errorContent' | translate }}
+
+-->

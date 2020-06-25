@@ -1,0 +1,34 @@
+<div class="Signin">
+  <div class="Wrapper fadeInDown">
+    <div class="Signin-content">
+
+      <!-- Logo -->
+      <app-logo size="90%"></app-logo>
+
+      <div class="loading-container">
+        <!-- Spinner -->
+        <div>
+          <strong>{{ 'sor.loading' | translate }}</strong>
+
+          <div class="d-flex justify-content-center">
+            <div class="spinner-border" role="status">
+              <span class="sr-only">{{ 'sor.loading' | translate }}</span>
+            </div>
+          </div>
+        </div>
+        <!-- Error -->
+        <span class="alert alert-danger" role="alert" *ngIf="serviceDownMSG">
+          {{ 'errors.serviceDown' | translate }}
+        </span>
+
+        <div *ngIf="this.sorErrorMSG">
+          <span class="alert alert-danger" role="alert" *ngIf="sorErrorMSG">
+            {{ 'errors.sorErrorMsg' | translate }}
+          </span>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>

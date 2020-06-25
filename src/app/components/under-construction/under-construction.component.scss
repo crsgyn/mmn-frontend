@@ -1,0 +1,9 @@
+@import 'src/scss/styles.scss';
+
+span {
+  background: $very-light-primary;
+  display: block;
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid $medium-primary;
+}

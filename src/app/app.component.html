@@ -1,0 +1,62 @@
+<nav class="App-nav-bar navbar navbar-expand-lg navbar-light bg-light rounded">
+
+  <!-- LOGO -->
+  <a class="navbar-brand" [routerLink]="['/home']">
+    <img [src]="this.smallLogo" class="Nav-logo" alt="{{ 'app.name' | translate }}" />
+  </a>
+
+  <!-- TOGGLER -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample09"
+    aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarsExample09">
+    <ul class="navbar-nav mr-auto">
+      <!-- Add elements to the LEFT of Navbar
+          <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link disabled" href="#">Disabled</a>
+          </li>
+        -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="dropdown09" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          <span [class]="this.supportedLangsFlags[this.currentLang]"> </span> {{ this.currentLang | uppercase }}</a>
+        <div class="dropdown-menu" aria-labelledby="dropdown09">
+          <a class="dropdown-item" *ngFor="let lang of this.supportedLangs" (click)="setLang(lang)">
+            <span [class]="this.supportedLangsFlags[lang]"></span>
+            {{ lang | uppercase }}
+          </a>
+        </div>
+      </li>
+    </ul>
+    <div class="my-2 my-md-0">
+      <div *ngIf="!loggedIn">
+        <button class="btn btn-link">
+          <a class="underlineHover" [routerLink]="['/signin']"
+            routerLinkActive="router-link-active">{{ 'nav.signin' | translate }}</a>
+        </button>
+        <button class="btn btn-link">
+          <a class="underlineHover" [routerLink]="['/signup']"
+            routerLinkActive="router-link-active">{{ 'nav.signup' | translate }}</a>
+        </button>
+      </div>
+      <button *ngIf="loggedIn" class="btn btn-link">
+        <a class="underlineHover" [routerLink]="['/logout']"
+          routerLinkActive="router-link-active">{{ 'nav.logout' | translate }}</a>
+      </button>
+    </div>
+    <!--
+      <form class="form-inline my-2 my-md-0">
+          <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+      </form>
+      -->
+  </div>
+</nav>
+<cookie-law name="myShinyCookieLaw"></cookie-law>
+<router-outlet (activate)="onChangeOfRoutes($event)"></router-outlet>

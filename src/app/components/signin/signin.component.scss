@@ -1,0 +1,9 @@
+@import 'src/scss/styles.scss';
+
+.Signin {
+  // STRUCTURE
+
+  &-content {
+    @include container(650px);
+  }
+}

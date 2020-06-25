@@ -1,0 +1,8 @@
+<div class="SettingsPage">
+  <div class="Wrapper fadeInDown">
+    <h1>{{ 'home.settingsTitle' | translate}}</h1>
+    <!--<app-under-construction></app-under-construction>-->
+    <app-language-config *ngIf="isAdmin()"></app-language-config>
+    <app-users-config *ngIf="isAdmin()"></app-users-config>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+@import 'src/scss/styles.scss';
+
+.Profile {
+  // STRUCTURE
+
+  &-content {
+    @include container(450px);
+  }
+
+}

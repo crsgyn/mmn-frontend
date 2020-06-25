@@ -1,0 +1,24 @@
+<div class="PaymentValidation">
+  <div class="Wrapper fadeInDown">
+    <div class="PaymentValidation-content">
+      <!-- Payment -->
+      <span>
+        <div class="alert alert-info" role="alert" *ngIf="isPrivilegedAccount()">
+          {{ 'info.paymentAdmin' | translate }}
+        </div>
+
+        <div class="row align-items-center justify-content-center">
+          <app-subscription-payment (completedSubscription)="receiveConfirmation($event)" *ngIf="!paid && !isInvestorOrAmbassador()">
+          </app-subscription-payment>
+          <div *ngIf="paid">
+            <app-logo size="50vh"></app-logo>
+            <h1>{{ 'signup.initialSubSucessful' | translate }}</h1>
+          </div>
+        </div>
+      </span>
+
+      <input type="button" class="fadeIn-fourth" [disabled]="!paid && !isPrivilegedAccount()"
+        (click)="navigate()" value="{{ 'signup.nextButton' | translate }}">
+    </div>
+  </div>
+</div>

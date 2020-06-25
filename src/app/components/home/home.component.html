@@ -1,0 +1,31 @@
+<div class="Sidebar">
+  <div class="Sidebar-content">
+    <div class="Sidebar-menu">
+      <div class="nav nav-pills flex-column">
+        <a class="nav-link" [routerLink]="['/dashboard']" routerLinkActive="nav-link-active">
+          {{ 'home.dashboardTitle' | translate }}
+        </a>
+        <!--
+        <a class="nav-link" [routerLink]="['/profile']" routerLinkActive="nav-link-active">
+          {{ 'home.profileTitle' | translate }}
+        </a>
+        -->
+        <a class="nav-link" [routerLink]="['/tree']" routerLinkActive="nav-link-active">
+          {{ 'home.treeTitle' | translate }}
+        </a>
+        <a class="nav-link" [routerLink]="['/idecide']" routerLinkActive="nav-link-active">
+          {{ 'home.idecideTitle' | translate }}
+        </a>
+        <a class="nav-link" [routerLink]="['/products']" routerLinkActive="nav-link-active">
+          {{ 'home.productsTitle' | translate }}
+        </a>
+        <a class="nav-link" [routerLink]="['/settings']" routerLinkActive="nav-link-active" *ngIf="isAdmin()">
+          {{ 'home.settingsTitle' | translate }}
+        </a>
+      </div>
+    </div>
+    <div class="Sidebar-menu-content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

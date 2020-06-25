@@ -1,0 +1,49 @@
+
+
+<div class="text-center">
+  <h2>{{ 'home.translationsTitle' | translate}}</h2>
+  <div *ngIf="showError()" class="alert alert-warning text-center" role="alert">
+    {{ 'errors.translationNotLoaded' | translate }}
+  </div>
+</div>
+
+<div class="accordion w-100 p-3" id="accordionExample">
+  <div class="card" *ngFor="let langArray of LANGUAGES | keyvalue;  index as i">
+    <div class="card-header" [attr.id]="'headingOne' + i">
+      <button class="btn btn-link" type="button" data-toggle="collapse" [attr.data-target]="'#collapseOne'+i"
+        aria-expanded="false" [attr.aria-controls]="'collapseOne'+i">
+        <span [class]="'flag-icon flag-icon-'+ getSupportedLangFlag(langArray.key)" style="width: 20px"></span><span
+          style="padding-left: 10px">{{langArray.key}}</span>
+      </button>
+    </div>
+
+    <div [attr.id]="'collapseOne'+i" class="collapse" [attr.aria-labelledby]="'heading' + i"
+      data-parent="#accordionExample">
+      <div class="card-body">
+        <!-- Table -->
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Flag</th>
+              <th scope="col">Country</th>
+              <th scope="col">Key</th>
+              <th scope="col">Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let lang of langArray.value; index as j">
+              <th scope="row">{{ j + 1 }}</th>
+              <td>
+                <span [class]="'flag-icon flag-icon-' + getSupportedLangFlag(lang.language)" style="width: 20px"></span>
+              </td>
+              <td>{{ lang.language }}</td>
+              <td>{{ lang.key }}</td>
+              <td [innerHtml]="lang.value"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

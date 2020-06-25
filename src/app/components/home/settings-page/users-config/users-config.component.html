@@ -1,0 +1,49 @@
+<div class="text-center">
+  <h2>{{ 'home.usersTittle' | translate}}</h2>
+  <div *ngIf="showError()" class="alert alert-warning text-center" role="alert">
+    {{ 'errors.usersNotLoaded' | translate }}
+  </div>
+</div>
+
+<div class="accordion w-100 p-3" id="accordionExample">
+  <div class="card">
+    <div class="card-header" [attr.id]="'headingOne'">
+      <button class="btn btn-link" type="button" data-toggle="collapse" [attr.data-target]="'#collapseOne'"
+        aria-expanded="false" [attr.aria-controls]="'collapseOne'">
+        <span>{{ 'list.users' | translate }}</span>
+      </button>
+    </div>
+
+    <div [attr.id]="'collapseOne'" class="collapse" [attr.aria-labelledby]="'heading'" data-parent="#accordionExample">
+      <div class="card-body">
+        <!-- Table -->
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">email</th>
+              <th scope="col">phone</th>
+              <th scope="col">name</th>
+              <th scope="col">lastName</th>
+              <th scope="col">accountStatus</th>
+              <th scope="col">accountRole</th>
+              <th scope="col">creationDate</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of USERS; index as j">
+              <th scope="row">{{ j + 1 }}</th>
+              <td>{{ user.email }}</td>
+              <td>{{ user.phone }}</td>
+              <td>{{ user.name }}</td>
+              <td>{{ user.lastName }}</td>
+              <td>{{ user.accountStatus }}</td>
+              <td>{{ user.role }}</td>
+              <td>{{ user.creationDate }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

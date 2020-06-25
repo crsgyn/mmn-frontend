@@ -1,0 +1,51 @@
+@import 'src/scss/styles.scss';
+
+.Signup {
+  // STRUCTURE
+
+  &-content {
+    @include container(1150px);
+  }
+
+  .formHeader {
+    border-bottom: 1px solid $very-light-primary;
+    margin-bottom: 20px;
+  }
+
+  .formFooter {
+    background-color: $bg-gray;
+    border-top: 1px solid $very-light-primary;
+    text-align: center;
+  }
+
+  .terms {
+    background: $very-light-primary;
+    display: block;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid $medium-primary;
+
+    input[type=checkbox] {
+      display: inline-block;
+      margin-right: 10px;
+    }
+
+    label {
+      display: inline;
+    }
+  }
+
+  .termsCheckBox {
+    margin: 2rem 0.5rem;
+  }
+
+  .termsLabel {
+    font: 1.2rem;
+  }
+
+  .error-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+}

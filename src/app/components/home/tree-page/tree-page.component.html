@@ -1,0 +1,29 @@
+<!--
+  https://codepen.io/ross-angus/pen/jwxMjL
+-->
+<div class="TreePage">
+  <div class="Wrapper fadeInDown">
+    <h1>{{ 'home.treeTitle' | translate}}</h1>
+    <div>
+      <ul class="tree">
+        <ng-template #recursiveList let-tree>
+          <li *ngFor="let treeNode of tree">
+            <code
+              class="list-group-item list-group-item-primary">{{ treeNode.parent.name + " " + treeNode.parent.lastName }}</code>
+            <ul *ngIf="treeNode.children.length > 0">
+              <ng-template [ngTemplateOutlet]="recursiveList"
+                [ngTemplateOutletContext]="{ $implicit: treeNode.children }"></ng-template>
+            </ul>
+            <ul *ngIf="treeNode.children.length == 0">
+              <li>
+                <code class="list-group-item list-group-item-light">{{ 'tree.noChildren' | translate }}</code>
+              </li>
+            </ul>
+          </li>
+        </ng-template>
+        <ng-template [ngTemplateOutlet]="recursiveList" [ngTemplateOutletContext]="{ $implicit: tree }"></ng-template>
+      </ul>
+
+    </div>
+  </div>
+</div>

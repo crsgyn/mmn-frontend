@@ -1,0 +1,22 @@
+@import 'src/scss/styles.scss';
+
+.Signin {
+  // STRUCTURE
+
+  &-content {
+    @include container(450px);
+  }
+
+  &-logo {
+    margin: 5%;
+    width: 60%;
+  }
+
+  span {
+    background: $very-light-primary;
+    display: block;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid $medium-primary;
+  }
+}

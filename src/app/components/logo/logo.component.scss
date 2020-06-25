@@ -1,0 +1,9 @@
+div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .logo {
+    margin: 5%;
+    max-width: 30vh;
+  }
+}

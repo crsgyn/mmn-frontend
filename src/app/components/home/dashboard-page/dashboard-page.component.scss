@@ -1,0 +1,55 @@
+@import 'src/scss/styles.scss';
+
+.Dashboard {
+  // STRUCTURE
+  // border: 1px solid black;
+
+  &-content {
+    @include container(100vh);
+  }
+
+  .dashboard-form {
+    // border: 1px solid red;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .form-group {
+    // border: 1px solid green;
+    flex-basis: 32%;
+    margin: 5px;
+  }
+
+  .form-group:last-child {
+    flex-basis: 98%;
+  }
+
+  .subscription-form {
+    display: block;
+    width: 95%;
+  }
+
+  #subscription {
+    @include border-radius(0.5rem);
+    padding: 1rem;
+    color: white;
+    background-color: $other-primary;
+    font-size: xx-large;
+    width: 100%;
+  }
+
+  @media only screen and (max-width: 768px) {
+
+    /* For mobile phones: */
+    .form {
+    }
+
+    .form-group {
+      height: unset;
+      flex-basis: 98%;
+      min-height: unset;
+    }
+  }
+}

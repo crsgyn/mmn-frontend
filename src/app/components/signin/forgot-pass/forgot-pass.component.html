@@ -1,0 +1,41 @@
+<div class="Signin">
+  <div class="Wrapper fadeInDown">
+    <div class="Signin-content">
+      <!-- Tabs Titles -->
+      <div class="formHeader">
+        <h2>{{ 'forgot.title' | translate }}</h2>
+      </div>
+
+      <!-- Logo -->
+      <div class="fadeIn-first">
+        <img [src]="logo" class="Signin-logo" alt="logo" />
+      </div>
+
+      <div *ngIf="!successful">
+        <!-- ERROR -->
+        <span class="alert alert-danger" role="alert" *ngIf="accountDoesntExistMSG">
+          {{ 'errors.doesNotExist' | translate }}
+        </span>
+
+        <!-- Login Form -->
+        <form [formGroup]="forgotForm">
+          <input type="text" id="email" class="fadeIn-second" formControlName="email"
+            placeholder="{{ 'forgot.email' | translate }}">
+
+          <input type="button" class="fadeIn-fourth" [disabled]="!forgotForm.valid" (click)="validateBeforeSubmit()"
+            value="{{ 'forgot.button' | translate }}">
+        </form>
+      </div>
+      <div *ngIf="successful">
+        <span>{{ 'recover.successful' | translate }}</span>
+      </div>
+
+      <!-- Footer -->
+      <div class="formFooter">
+        <a class="underlineHover" [routerLink]="['/signup']">{{ 'signin.newAccount' | translate }}</a>
+        <br>
+        <a class="underlineHover" [routerLink]="['/signin']">{{ 'signin.loginMsg' | translate }}</a>
+      </div>
+    </div>
+  </div>
+</div>

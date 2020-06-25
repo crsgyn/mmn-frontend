@@ -1,0 +1,93 @@
+<div *ngIf="isNewAccount()" class="alert alert-warning text-center" role="alert">
+  {{ 'warning.accountNotActive' | translate}}
+</div>
+
+<div class="Dashboard">
+  <div class="Wrapper fadeInDown">
+    <h1>{{ 'home.dashboardTitle' | translate}}</h1>
+    <!--<app-under-construction></app-under-construction>-->
+
+    <!-- Subscription Form -->
+    <form class="text-center subscription-form">
+      <div class="form-group subscription">
+        <div id="subscription" [innerHtml]="getSubscriptionName()"></div>
+      </div>
+    </form>
+    <!-- Perfil Form -->
+    <form [formGroup]="dashboardForm" class="text-center dashboard-form">
+
+      <div class="form-group">
+        <label for="name">{{ 'signup.name' | translate }}</label>
+        <br>
+        <input type="text" id="name" formControlName="name">
+      </div>
+      <div class="form-group">
+        <label for="email">{{ 'signup.email' | translate }}</label>
+        <br>
+        <input type="text" id="email" formControlName="email">
+      </div>
+      <div class="form-group">
+        <label for="phone">{{ 'signup.phone' | translate }}</label>
+        <br>
+        <input type="text" id="phone" formControlName="phone">
+      </div>
+      <div class="form-group">
+        <label for="accountStatus">{{ 'profile.accountStatus' | translate }}</label>
+        <br>
+        <input type="text" id="accountStatus" formControlName="accountStatus">
+      </div>
+      <div class="form-group">
+        <label for="role">{{ 'profile.accountRole' | translate }}</label>
+        <br>
+        <input type="text" id="role" formControlName="role">
+      </div>
+      <div class="form-group">
+        <label for="creationDate">{{ 'profile.creationDate' | translate }}</label>
+        <br>
+        <input type="text" id="creationDate" formControlName="creationDate">
+      </div>
+
+      <div class="form-group">
+        <label for="inviteToken">{{ 'signup.inviteToken' | translate }}</label>
+        <br>
+        <input type="text" id="inviteToken" formControlName="inviteToken">
+
+        <!-- AddToAny BEGIN -->
+        <div>
+          <a [attr.href]="'https://www.addtoany.com/share#url=' + linkUrl" target="_blank"><img
+              src="https://static.addtoany.com/buttons/a2a.svg" width="32" height="32"
+              style="background-color:royalblue"></a>
+          <a [attr.href]="'https://www.addtoany.com/add_to/copy_link?linkurl=' + linkUrl" target="_blank"><img
+              src="https://static.addtoany.com/buttons/link.svg" width="32" height="32"
+              style="background-color:royalblue"></a>
+          <a [attr.href]="'https://www.addtoany.com/add_to/facebook?linkurl=' + linkUrl" target="_blank"><img
+              src="https://static.addtoany.com/buttons/facebook.svg" width="32" height="32"
+              style="background-color:royalblue"></a>
+          <a [attr.href]="'https://www.addtoany.com/add_to/facebook_messenger?linkurl=' + linkUrl" target="_blank"><img
+              src="https://static.addtoany.com/buttons/facebook_messenger.svg" width="32" height="32"
+              style="background-color:royalblue"></a>
+          <a [attr.href]="'https://www.addtoany.com/add_to/whatsapp?linkurl=' + linkUrl" target="_blank"><img
+              src="https://static.addtoany.com/buttons/whatsapp.svg" width="32" height="32"
+              style="background-color:royalblue"></a>
+          <a [attr.href]="'https://www.addtoany.com/add_to/twitter?linkurl=' + linkUrl" target="_blank"><img
+              src="https://static.addtoany.com/buttons/twitter.svg" width="32" height="32"
+              style="background-color:royalblue"></a>
+          <a [attr.href]="'https://www.addtoany.com/add_to/email?linkurl=' + linkUrl" target="_blank"><img
+              src="https://static.addtoany.com/buttons/email.svg" width="32" height="32"
+              style="background-color:royalblue"></a>
+          <a [attr.href]="'https://www.addtoany.com/add_to/google_gmail?linkurl=' + linkUrl" target="_blank"><img
+              src="https://static.addtoany.com/buttons/gmail.svg" width="32" height="32"
+              style="background-color:royalblue"></a>
+          <a [attr.href]="'https://www.addtoany.com/add_to/telegram?linkurl=' + linkUrl" target="_blank"><img
+              src="https://static.addtoany.com/buttons/telegram.svg" width="32" height="32"
+              style="background-color:royalblue"></a>
+          <a [attr.href]="'https://www.addtoany.com/add_to/outlook_com?linkurl=' + linkUrl" target="_blank"><img
+              src="https://static.addtoany.com/buttons/outlook_com.svg" width="32" height="32"
+              style="background-color:royalblue"></a>
+        </div>
+        <!-- AddToAny END -->
+
+      </div>
+    </form>
+  </div>
+</div>

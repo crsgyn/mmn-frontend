@@ -1,0 +1,47 @@
+<div class="Signin">
+  <div class="Wrapper fadeInDown">
+    <div class="Signin-content">
+      <!-- Tabs Titles -->
+
+      <!-- Title-->
+      <div class="formHeader">
+        <h2>{{ 'signin.title' | translate }}</h2>
+      </div>
+
+      <!-- Logo -->
+      <app-logo size="60vh"></app-logo>
+
+      <!-- Login Form -->
+      <form [formGroup]="loginForm">
+
+        <div class="Errors">
+          <span class="alert alert-danger" role="alert" *ngIf="serviceDownMSG">
+            {{ 'errors.serviceDown' | translate }}
+          </span>
+
+          <span class="alert alert-danger" role="alert" *ngIf="invalidLoginMSG">
+            {{ 'signin.invalidLogin' | translate }}
+          </span>
+        </div>
+
+
+        <input type="text" id="login" class="fadeIn-second" formControlName="login"
+          placeholder="{{ 'signin.email' | translate }}">
+
+        <input type="password" id="password" class="fadeIn-third" formControlName="password"
+          placeholder="{{ 'signin.password' | translate }}">
+
+        <input type="button" class="fadeIn-fourth" [disabled]="!loginForm.valid" (click)="validateBeforeSubmit()"
+          value="{{ 'signin.button' | translate }}">
+      </form>
+
+      <!-- Footer -->
+      <div class="formFooter">
+        <a class="underlineHover" [routerLink]="['/signup']">{{ 'signin.newAccount' | translate }}</a>
+        <br>
+        <a class="underlineHover" [routerLink]="['/forgot']">{{ 'signin.forgotPass' | translate }}</a>
+      </div>
+
+    </div>
+  </div>
+</div>

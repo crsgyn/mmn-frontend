@@ -1,0 +1,25 @@
+@import 'src/scss/styles.scss';
+
+.Signin {
+  // STRUCTURE
+
+  &-content {
+    @include container(650px);
+  }
+
+  &-logo {
+    margin: 5%;
+    width: 60%;
+  }
+
+  .loading-container {
+    margin: 3rem;
+
+    .spinner-border {
+      width: 5rem;
+      height: 5rem;
+      margin: 3rem;
+    }
+  }
+
+}
